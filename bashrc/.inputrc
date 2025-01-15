@@ -1,0 +1,15 @@
+TAB: menu-complete
+set colored-completion-prefix on
+set colored-stats on
+set completion-ignore-case on   # Enable case-insensitive tab completion
+set show-all-if-ambiguous on    # Show all matches without having to press Tab twice
+set menu-complete-display-prefix on  # Display prefix when using menu-complete
+set mark-symlinked-directories on   # Mark symlinked directories with a '/'.
+# cycle forward
+Control-n: menu-complete
+# cycle backward
+Control-p: menu-complete-backward
+
+$if mode=vi
+"\C-f": "sessionizer"
+$endif

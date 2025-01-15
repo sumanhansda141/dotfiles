@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+sudo apt install light sway swaybg swayidle swayimg swaylock waybar wofi fonts-font-awesome foot
+
+ln -sf ~/opt/dotfiles/sway/sway ~/.config/sway
+ln -sf ~/opt/dotfiles/sway/wofi ~/.config/wofi
+ln -sf ~/opt/dotfiles/sway/waybar ~/.config/waybar
+ln -sf ~/opt/dotfiles/sway/foot ~/.config/foot

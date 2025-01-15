@@ -1,0 +1,153 @@
+! XTerm resources
+!
+! Remember to run `xrdb < .Xresources` after changing anything.
+
+! Set the default UI font (menus, toolbar, etc)
+XTerm*XftFont:                  JetBrainsMono Nerd Font Mono UI:size=10:antialias=true:style=Regular
+
+! Color of UI Components - Rose Pine Theme
+XTerm*.SimpleMenu.background:   #000000
+XTerm*.SimpleMenu.foreground:   #e0def4
+
+! Tone down the Xaw3D effect.
+XTerm*shapeStyle:               Rectangle
+XTerm*beNiceToColormap:         false
+XTerm*relief:                   None
+XTerm*highlightThickness:       0
+
+! Dont automatically jump to the bottom on output, but do on keypress.
+XTerm*scrollTtyOutput:          false
+XTerm*scrollKey:                true
+XTerm*scrollBar:                false
+XTerm*eightBitInput:            false
+XTerm*cursorBlink:              true
+
+! Dont allow mouse ops - it can be enabled in the view Menu at runtime.
+XTerm*allowMouseOps:            false
+
+! Dont change my title by default, this can be re-enabled from the menu.
+XTerm*allowTitleOps:            false
+XTerm*allowFontOps:             false
+
+! Mouse cursor configuration
+XTerm*pointerColor:             #e0def4
+XTerm*pointerColorBackground:   #000000
+XTerm*pointerShape:             left_ptr
+
+! Only select text, not empty space around it.
+XTerm*highlightSelection:       true
+
+! The distance between the edge of the screen and the characters.
+XTerm*vt100.internalBorder:     0
+
+! The border around elements.
+XTerm*.BorderColor:             #26233a
+XTerm*vt100.BorderColor:        #26233a
+XTerm*BorderWidth:              3
+
+! Menu Names
+XTerm*.mainMenu.label:          File
+XTerm*.vtMenu.label:            Options
+XTerm*.fontMenu.label:          View
+
+! Menubar label
+XTerm*.mainMenu.toolbar.label:  Menubar
+
+! Menu appearance
+XTerm*.SimpleMenu.*.shadowWidth: 3
+XTerm*.SimpleMenu.*.topShadowPixel: #31748f
+XTerm*.SimpleMenu.*.bottomShadowPixel: #31748f
+
+! Menu label settings
+XTerm*.*.menuLabel.vertSpace:   0
+XTerm*.*.menuLabel.XftFont:     Courier:size=0
+
+! Space around menu entries
+XTerm*.SimpleMenu.*.topMargin:  0
+XTerm*.SimpleMenu.*.bottomMargin: 0
+XTerm*.SimpleMenu.*.leftMargin: 32
+XTerm*.SimpleMenu.*.rightMargin: 64
+
+! Space around the checkmark in the menus
+XTerm*.SimpleMenu.*.leftWhitespace: 16
+
+! Trim vertical padding around the toolbar
+XTerm*Form.menubar.vSpace:      0
+XTerm*Form.menubar.vertDistance: 0
+XTerm*Form.menubar.foreground: #e0def4
+XTerm*Form.menubar.background: #000000
+XTerm*Form.menubar.Thickness:  0
+
+! Fonts
+XTerm*vt100.faceName:           xft:JetBrainsMono Nerd Font Mono:size=15:antialias=true:style=Regular
+XTerm*vt100.boldFont:           xft:JetBrainsMono Nerd Font Mono:size=15:antialias=true:style=Bold
+
+! Transparency settings (0=transparent, 1=opaque)
+XTerm*transparent:     true
+XTerm*fading:         80
+XTerm*fadeColor:      #191724
+XTerm*alpha:          1.0
+
+! Size and Title
+XTerm*vt100.geometry:           100x30
+XTerm*title:                    Terminal
+
+! Terminal Colors and Settings
+XTerm*termName:             xterm-256color
+XTerm*vt100.background:     #000000
+XTerm*vt100.foreground:     #e0def4
+XTerm*cursorColor:          #e0def4
+
+! Enable color display
+XTerm*customization:        -color
+XTerm*allowBoldFonts:       true
+XTerm*boldMode:             true
+XTerm*dynamicColors:        true
+
+! Remove previous bold color settings that might interfere
+! XTerm*veryBoldColors:       4
+! XTerm*colorBDMode:          true
+! XTerm*colorBD:              #e0def4
+! XTerm*colorRV:              #e0def4
+
+! Box characters settings
+XTerm*forceBoxChars:        true
+XTerm*vt100.scaleHeight:    1.04
+
+! Terminal ID for Sixel support
+XTerm*decTerminalID:        vt382
+
+! Color Scheme - Rose Pine
+! Normal colors
+XTerm*color0:               #26233a
+XTerm*color1:               #eb6f92
+XTerm*color2:               #9ccfd8
+XTerm*color3:               #f6c177
+XTerm*color4:               #31748f
+XTerm*color5:               #c4a7e7
+XTerm*color6:               #ebbcba
+XTerm*color7:               #e0def4
+
+! Bright colors
+XTerm*color8:               #6e6a86
+XTerm*color9:               #eb6f92
+XTerm*color10:              #9ccfd8
+XTerm*color11:              #f6c177
+XTerm*color12:              #31748f
+XTerm*color13:              #c4a7e7
+XTerm*color14:              #ebbcba
+XTerm*color15:              #e0def4
+
+! Basic background and foreground
+XTerm*background:           #000000
+XTerm*foreground:           #e0def4
+
+! To copy between xterm and other programs/documents/...
+XTerm*selectToClipboard: true
+
+! Keyboard translations
+XTerm*vt100.translations:   #override           \n\
+    Ctrl Shift <Key>F4:     string("\033[1;3S") \n\
+    ^<Key>I:                string("\014")      \n\
+    Ctrl Shift <Key>C:  copy-selection(SELECT)  \n\
+    Ctrl Shift <Key>V:  insert-selection(SELECT)

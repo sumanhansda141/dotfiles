@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+# workspaces
+
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 10
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
+for i in {1..9}; do gsettings set org.gnome.shell.keybindings switch-to-application-$i "[]";done
+
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt>1']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt>2']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt>3']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt>4']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 "['<Alt>5']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-6 "['<Alt>6']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-7 "['<Alt>7']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-8 "['<Alt>8']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-9 "['<Alt>9']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-10 "['<Alt>0']"
+
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Alt><Shift>1']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Alt><Shift>2']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Alt><Shift>3']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Alt><Shift>4']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Alt><Shift>5']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Alt><Shift>6']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-7 "['<Alt><Shift>7']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-8 "['<Alt><Shift>8']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-9 "['<Alt><Shift>9']"
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Alt><Shift>0']"
+
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>f']"
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>q']"
+
+# turn of all the animations
+gsettings set org.gnome.desktop.interface enable-animations false
+
+# alt + tab in single workspace
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
+# hide home folder icons
+gsettings set org.gnome.shell.extensions.ding show-home false
+
+# select ubuntu gtk theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-blue-dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+#custom keybindings for rofi
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Run Rofi'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'rofi -show drun'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Alt>d'
+
+# packages
+sudo apt install nala -y 
+sudo nala install ripgrep fd-find xclip tmux zsh fzf zoxide rofi lsd btop -y
+
+#dotfiles symlinks
+ln -sf ~/opt/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sf ~/opt/dotfiles/zsh/.zshenv ~/.zshenv
+ln -sf ~/opt/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -sf ~/opt/dotfiles/scripts ~/.config/scripts
+ln -sf ~/opt/dotfiles/nvim ~/.config/nvim
+ln -sf ~/opt/dotfiles/rofi ~/.config/rofi
+if [ ! -d ~/.config/btop ]; then
+    mkdir ~/.config/btop
+fi && \
+ln -sf ~/opt/dotfiles/btop/btop.conf ~/.config/btop/btop.conf
+
+#install JetBrainsMono font
+if [ ! -d ~/.local/share/fonts ]; then
+    mkdir ~/.local/share/fonts
+fi && \
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip && \
+cd ~/.local/share/fonts && \
+unzip JetBrainsMono.zip && \
+rm JetBrainsMono.zip && \
+fc-cache -fv
+
+chsh -s $(which zsh)

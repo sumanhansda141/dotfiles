@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Script to run zellij/tmux in current working dir.
+
+# tmux -u new -s $(pwd | sed 's/.*\///g')
+zellij --layout compact -s $(pwd | sed 's/.*\///g')

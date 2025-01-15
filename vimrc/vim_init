@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+sudo apt install vim-gtk3 -y
+
+# Create symbolic links, but don't overwrite existing files
+ln -s ~/opt/dotfiles/vimrc/.vimrc ~/.vimrc 2>/dev/null || true
+ln -s ~/opt/dotfiles/vimrc/.ideavimrc ~/.ideavimrc 2>/dev/null || true
+
+# Check if .vim directory exists, if not create it
+if [ ! -d ~/.vim ]; then
+    mkdir ~/.vim
+fi
+
+# Remove existing templates symlink if it exists, then create a new one
+rm -f ~/.vim/templates
+ln -s ~/opt/dotfiles/vimrc/templates ~/.vim/templates
+ln -s ~/opt/dotfiles/vimrc/coc-settings.json ~/.vim/coc-settings.json
+ln -s ~/opt/dotfiles/vimrc/colors ~/.vim/colors
+
+# Install vim-plug if not already installed
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Install plugins with a more reliable method
+vim -u ~/.vimrc -i NONE -c PlugInstall -c qall! || true
