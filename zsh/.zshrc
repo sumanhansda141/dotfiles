@@ -68,3 +68,9 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "$(fnm env)"
 fi
+
+# SDKMAN configuration
+export SDKMAN_DIR="${HOME}/.sdkman"
+if [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+fi
