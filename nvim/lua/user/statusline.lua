@@ -129,6 +129,16 @@ local function vcs()
 	})
 end
 
+local function noice_mode()
+	local noice_ok, noice = pcall(require, "noice")
+	if not noice_ok then
+		return ""
+	end
+
+	local noice_status = noice.api.status.mode.get()
+	return noice_status and ("%#NoiceModeAccent#" .. noice_status .. " ") or ""
+end
+
 local arrow = require("arrow.statusline")
 
 Statusline = {}
@@ -138,11 +148,12 @@ Statusline.active = function()
 		"%#Statusline#",
 		update_mode_colors(),
 		mode(),
+        noice_mode(),
 		vcs(),
 		"%#Normal# ",
 		"%=%#StatusLineExtra#",
 		"%#Normal# ",
-    arrow.text_for_statusline_with_icons(),
+		arrow.text_for_statusline_with_icons(),
 		filepath(),
 		filename(),
 		"%m",

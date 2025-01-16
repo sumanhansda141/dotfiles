@@ -10,7 +10,7 @@ multiplier = 4
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
-size = 10
+size = 15
 
 [selection]
 save_to_clipboard = true

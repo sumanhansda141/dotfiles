@@ -43,7 +43,7 @@ bar {
     position top
     hidden_state hide
     mode hide
-    modifier Mod4
+    modifier Mod1
 }
 
 
@@ -125,7 +125,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+p mode "resize"
+bindsym $mod+r mode "resize"
 
 
 #=================================#
@@ -228,5 +228,5 @@ bindsym $mod+q kill
 bindsym $mod+space exec $menu
 
 # Open the application launcher (alternate version):
-bindsym $mod+r exec $menu
+bindsym $mod+d exec $menu
 
