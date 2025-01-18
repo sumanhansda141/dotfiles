@@ -1,12 +1,12 @@
 local M = {
-	"gbprod/nord.nvim",
+	"UtkarshVerma/molokai.nvim",
 	lazy = false,
 	priority = 1000,
 	opts = {},
 }
 
 function M.config()
-	local colorscheme = "nord"
+	local colorscheme = "molokai"
 
 	local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
 	if not status_ok then

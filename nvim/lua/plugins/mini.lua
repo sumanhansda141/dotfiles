@@ -48,6 +48,6 @@ function M.config()
 	})
 	require("mini.extra").setup({})
 	require("mini.icons").setup({})
-	require("mini.git").setup()
+	require("mini.git").setup({})
 end
 return M

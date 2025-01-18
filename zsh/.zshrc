@@ -41,17 +41,18 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# Catppuccin colorscheme for fzf
 export FZF_DEFAULT_OPTS=" \
-  --prompt '❯ '
-  --height=40% \
-  --layout=reverse \
-  --info=inline \
-  --border \
-  --color=fg:#e5e9f0,hl:#81a1c1
-  --color=fg+:#e5e9f0,bg+:#2E3440,hl+:#81a1c1
-  --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
-  --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
+  --info=inline
+  --color=fg+:#f8f8f2,bg+:#3e3d32,hl+:#f92672,hl:#a6e22e
+  --color=info:#75715e,prompt:#66d9ef,pointer:#f92672
+  --color=marker:#a6e22e,spinner:#f92672,header:#75715e
+  --color=border:#75715e
+  --border
+  --height 40%
+  --layout=reverse
+  --prompt '∼ '
+  --pointer '▶'
+  --marker '✓'
   --multi"
 
 source "$HOME/opt/dotfiles/zsh/completion.zsh"

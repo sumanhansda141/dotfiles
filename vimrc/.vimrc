@@ -75,7 +75,7 @@ nnoremap [t :tabnext<CR>
 nnoremap ]t :tabprevious<CR>
 nnoremap <Leader>u :MundoToggle<CR>
 nnoremap <Leader>lf  gg=G<C-o><C-o>
-colorscheme nord
+colorscheme monokai
 
 "}}}
 

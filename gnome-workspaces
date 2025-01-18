@@ -53,7 +53,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 # packages
 sudo apt install nala -y 
-sudo nala install ripgrep fd-find xclip tmux zsh fzf zoxide rofi lsd btop -y
+sudo nala install ripgrep fd-find xclip tmux zsh fzf zoxide rofi lsd btop ninja-build gettext cmake curl build-essential -y
 
 #dotfiles symlinks
 ln -sf ~/opt/dotfiles/zsh/.zshrc ~/.zshrc
@@ -76,5 +76,23 @@ cd ~/.local/share/fonts && \
 unzip JetBrainsMono.zip && \
 rm JetBrainsMono.zip && \
 fc-cache -fv
+
+# Install tmux plugin manager (tpm)
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+# Install tmux plugins
+~/.tmux/plugins/tpm/bin/install_plugins
+
+# Install neovim btw
+if [ ! -d ~/opt/neovim ]; then
+    git clone https://github.com/neovim/neovim ~/opt/neovim
+    cd ~/opt/neovim || exit
+    git checkout stable
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
+    sudo make install
+    cd ..
+fi
 
 chsh -s $(which zsh)

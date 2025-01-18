@@ -117,9 +117,9 @@ call s:h("ErrorMsg",      { "fg": s:black,      "bg": s:red,          "format": 
 call s:h("WarningMsg",    { "fg": s:red })
 call s:h("VertSplit",     { "fg": s:darkgrey,   "bg": s:darkblack })
 call s:h("WinSeparator",  { "fg": s:darkgrey,   "bg": s:darkblack })
-call s:h("LineNrAbove",   { "fg": s:br_purple,  "bg": s:lightblack })
+call s:h("LineNrAbove",   { "fg": s:pink,       "bg": s:lightblack })
 call s:h("LineNr",        { "fg": s:br_white,   "bg": s:lightblack })
-call s:h("LineNrBelow",   { "fg": s:br_cyan,    "bg": s:lightblack })
+call s:h("LineNrBelow",   { "fg": s:aqua,       "bg": s:lightblack })
 call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
 call s:h("SignColumn",    {                     "bg": s:lightblack })
 
@@ -205,7 +205,7 @@ call s:h("Tag",           { "fg": s:pink })
 "        Debug"
 
 call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
-call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
+call s:h("Comment",       { "fg":s:warmgrey,  "format": "italic" })
                          
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
@@ -313,7 +313,7 @@ call s:h("jsFutureKeys",        { "fg": s:aqua })
 call s:h("jsBuiltins",          { "fg": s:aqua })
 call s:h("jsStatic",            { "fg": s:aqua })
 call s:h("jsSuper",             { "fg": s:orange, "format": "italic" })
-call s:h("jsFuncArgRest",       { "fg": s:purple, "format": "italic" })                                 
+call s:h("jsFuncArgRest",       { "fg": s:purple, "format": "italic" })
 call s:h("jsFuncArgs",          { "fg": s:orange, "format": "italic" })
 call s:h("jsStorageClass",      { "fg": s:aqua, "format": "italic" })
 call s:h("jsDocTags",           { "fg": s:aqua,   "format": "italic" })
@@ -363,7 +363,7 @@ call s:h("dartConstant",        { "fg": s:purple })
 call s:h("dartBoolean",         { "fg": s:purple })
 call s:h("dartCoreType",        { "fg": s:aqua })
 call s:h("dartType",            { "fg": s:aqua })
-                                 
+
 " HTML
 call s:h("htmlTag",             { "fg": s:white })
 call s:h("htmlEndTag",          { "fg": s:white })

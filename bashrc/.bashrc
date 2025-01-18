@@ -91,7 +91,7 @@ parse_git_info() {
 # Function to set the prompt
 set_bash_prompt() {
     PROMPT_DIRTRIM=3
-    PS1="\033[1;32m\w\033[0m $(parse_git_info)\n\`if [ \$? = 0 ]; then echo \[\e[36m\]➜\[\e[0m\]; else echo \[\e[31m\$? ✗\[\e[0m\]; fi\` "
+    PS1="\033[1;32m\w\033[0m $(parse_git_info)\n\`if [ \$? = 0 ]; then echo \[\e[36m\]➜ \[\e[0m\]; else echo \[\e[31m\✗ \[\e[0m\]; fi\` "
     printf "\n"
 }
 
@@ -122,14 +122,17 @@ if command -v fzf &>/dev/null; then
 
   # Catppuccin-inspired FZF theme
   export FZF_DEFAULT_OPTS=" \
-      --height=40% \
-      --layout=reverse \
-      --info=inline \
-      --border \
-      --color=fg:#e5e9f0,bg:#2E3440,hl:#81a1c1
-      --color=fg+:#e5e9f0,bg+:#2E3440,hl+:#81a1c1
-      --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
-      --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
+      --info=inline
+      --color=fg+:#f8f8f2,bg+:#3e3d32,hl+:#f92672
+      --color=info:#75715e,prompt:#66d9ef,pointer:#f92672
+      --color=marker:#a6e22e,spinner:#f92672,header:#75715e
+      --color=border:#75715e
+      --border
+      --height 40%
+      --layout=reverse
+      --prompt '∼ '
+      --pointer '▶'
+      --marker '✓'
       --multi"
 fi
 
