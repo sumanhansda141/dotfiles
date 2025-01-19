@@ -31,6 +31,34 @@ function M.config()
 	local luasnip = require("luasnip")
 	luasnip.config.setup({})
 
+	local cmp_kinds = {
+		Text = "  ",
+		Method = "  ",
+		Function = "  ",
+		Constructor = "  ",
+		Field = "  ",
+		Variable = "  ",
+		Class = "  ",
+		Interface = "  ",
+		Module = "  ",
+		Property = "  ",
+		Unit = "  ",
+		Value = "  ",
+		Enum = "  ",
+		Keyword = "  ",
+		Snippet = "  ",
+		Color = "  ",
+		File = "  ",
+		Reference = "  ",
+		Folder = "  ",
+		EnumMember = "  ",
+		Constant = "  ",
+		Struct = "  ",
+		Event = "  ",
+		Operator = "  ",
+		TypeParameter = "  ",
+	}
+
 	cmp.setup({
 		snippet = {
 			expand = function(args)
@@ -38,7 +66,23 @@ function M.config()
 			end,
 		},
 		completion = { completeopt = "menu,menuone,noinsert" },
-
+		window = {
+			completion = {
+				border = "single",
+			},
+			documentation = {
+				border = "single",
+			},
+		},
+		preselect = "item",
+		performance = {
+			debounce = 0,
+			throttle = 0,
+			confirm_resolve_timeout = 0,
+			async_budget = 100,
+			fetching_timeout = 500,
+			max_view_entries = 20,
+		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -70,6 +114,12 @@ function M.config()
 			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "buffer" },
+		},
+		formatting = {
+			format = function(_, vim_item)
+				vim_item.kind = (cmp_kinds[vim_item.kind] or "") .. vim_item.kind
+				return vim_item
+			end,
 		},
 	})
 end
