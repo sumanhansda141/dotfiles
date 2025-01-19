@@ -50,6 +50,26 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun
 # bindsym $mod+d exec "dmenu_run -nf '#ffffff' -nb '#161616' -sb '#ffffff' -sf '#161616' -fn 'monospace-12' -p 'dmenu%'"
 
+# Colors from Awesome WM default theme
+set $bg-normal     #222222
+set $bg-focus      #535d6c
+set $bg-urgent     #ff0000
+set $bg-minimize   #444444
+set $fg-normal     #aaaaaa
+set $fg-focus      #ffffff
+set $fg-urgent     #ffffff
+set $fg-minimize   #ffffff
+set $border-normal #000000
+set $border-focus  #535d6c
+set $border-marked #91231c
+
+# Window Colors
+# class                 border          background      text            indicator       child_border
+client.focused          $border-focus   $bg-focus       $fg-focus      $border-focus   $border-focus
+client.unfocused        $border-normal  $bg-normal      $fg-normal     $border-normal  $border-normal
+client.focused_inactive $border-normal  $bg-minimize    $fg-minimize   $border-normal  $border-normal
+client.urgent           $bg-urgent      $bg-urgent      $fg-urgent     $bg-urgent      $bg-urgent
+
 #Borders
 for_window [class="^.*"] border pixel 3
 gaps inner 10
@@ -182,31 +202,19 @@ bar {
     font pango:JetBrainsMono Nerd Font    9
     modifier Mod1
     mode hide
-# i3bar position
+    # i3bar position
     position bottom
     colors {
-            separator  #88C0D0
-            background #1f222d
-            statusline #81a1c1
+        background $bg-normal
+        separator  $fg-normal
 
-            #                   border  background text
-            focused_workspace  #1f222d #1f222d    #81a1c1
-            active_workspace   #1f222d #252936    #5e81ac
-            inactive_workspace #1f222d #1f222d    #4c566a
-            urgent_workspace   #1f222d #1f222d    #ee829f
-            binding_mode       #1f222d #81a1c1    #2e3440
+        # class             border          background      text
+        focused_workspace   $border-focus   $bg-focus       $fg-focus
+        inactive_workspace  $border-normal  $bg-normal      $fg-normal
+        urgent_workspace    $bg-urgent      $bg-urgent      $fg-urgent
+        binding_mode       $bg-minimize    $bg-minimize    $fg-minimize
     }
 }
-
-# Window color settings
-# class                 border  backgr. text    indicator
-client.focused          #88C0D0 #88C0D0 #1f222d #5E81AC
-client.unfocused        #2e3440 #1f222d #A3BE8C #1f222d
-client.focused_inactive #2e3440 #1f222d #888888 #1f222d
-client.placeholder      #2e3440 #1f222d #888888 #1f222d
-client.urgent           #900000 #900000 #ffffff #900000
-
-client.background       #242424
 
 # exec_always feh --bg-max $HOME/Pictures/Wallpapers/1633802977283.jpg
 exec_always nitrogen --restore
