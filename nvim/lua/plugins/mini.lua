@@ -49,5 +49,10 @@ function M.config()
 	require("mini.extra").setup({})
 	require("mini.icons").setup({})
 	require("mini.git").setup({})
+
+	require("mini.files").setup({})
+	vim.keymap.set("n", "<leader>e", function()
+		MiniFiles.open()
+	end, { silent = true })
 end
 return M

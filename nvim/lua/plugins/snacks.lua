@@ -2,7 +2,6 @@ local M = {
 	"folke/snacks.nvim",
 	priority = 1000,
 	lazy = false,
-	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
@@ -79,6 +78,7 @@ local M = {
 			end,
 			desc = "Toggle Terminal",
 		},
+
 		{
 			"<leader>gB",
 			function()
