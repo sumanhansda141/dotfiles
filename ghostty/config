@@ -7,7 +7,7 @@ background-opacity = 0.8
 gtk-titlebar = false
 window-theme = dark
 
-background=#272822
+background=#000000
 foreground=#f8f8f2
 cursor-color=#f8f8f2
 

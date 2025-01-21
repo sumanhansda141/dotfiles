@@ -7,7 +7,7 @@ XTerm*XftFont:                  JetBrainsMono Nerd Font Mono UI:size=10:antialia
 
 ! Color of UI Components - Rose Pine Theme
 XTerm*.SimpleMenu.background:   #000000
-XTerm*.SimpleMenu.foreground:   #e0def4
+XTerm*.SimpleMenu.foreground:   #f8f8f2
 
 ! Tone down the Xaw3D effect.
 XTerm*shapeStyle:               Rectangle
@@ -30,7 +30,7 @@ XTerm*allowTitleOps:            false
 XTerm*allowFontOps:             false
 
 ! Mouse cursor configuration
-XTerm*pointerColor:             #e0def4
+XTerm*pointerColor:             #f8f8f2
 XTerm*pointerColorBackground:   #000000
 XTerm*pointerShape:             left_ptr
 
@@ -41,8 +41,8 @@ XTerm*highlightSelection:       true
 XTerm*vt100.internalBorder:     0
 
 ! The border around elements.
-XTerm*.BorderColor:             #26233a
-XTerm*vt100.BorderColor:        #26233a
+XTerm*.BorderColor:             #272822
+XTerm*vt100.BorderColor:        #272822
 XTerm*BorderWidth:              3
 
 ! Menu Names
@@ -55,8 +55,8 @@ XTerm*.mainMenu.toolbar.label:  Menubar
 
 ! Menu appearance
 XTerm*.SimpleMenu.*.shadowWidth: 3
-XTerm*.SimpleMenu.*.topShadowPixel: #31748f
-XTerm*.SimpleMenu.*.bottomShadowPixel: #31748f
+XTerm*.SimpleMenu.*.topShadowPixel: #66d9ef
+XTerm*.SimpleMenu.*.bottomShadowPixel: #66d9ef
 
 ! Menu label settings
 XTerm*.*.menuLabel.vertSpace:   0
@@ -74,7 +74,7 @@ XTerm*.SimpleMenu.*.leftWhitespace: 16
 ! Trim vertical padding around the toolbar
 XTerm*Form.menubar.vSpace:      0
 XTerm*Form.menubar.vertDistance: 0
-XTerm*Form.menubar.foreground: #e0def4
+XTerm*Form.menubar.foreground: #f8f8f2
 XTerm*Form.menubar.background: #000000
 XTerm*Form.menubar.Thickness:  0
 
@@ -95,8 +95,8 @@ XTerm*title:                    Terminal
 ! Terminal Colors and Settings
 XTerm*termName:             xterm-256color
 XTerm*vt100.background:     #000000
-XTerm*vt100.foreground:     #e0def4
-XTerm*cursorColor:          #e0def4
+XTerm*vt100.foreground:     #f8f8f2
+XTerm*cursorColor:          #f8f8f2
 
 ! Enable color display
 XTerm*customization:        -color
@@ -107,8 +107,8 @@ XTerm*dynamicColors:        true
 ! Remove previous bold color settings that might interfere
 ! XTerm*veryBoldColors:       4
 ! XTerm*colorBDMode:          true
-! XTerm*colorBD:              #e0def4
-! XTerm*colorRV:              #e0def4
+! XTerm*colorBD:              #f8f8f2
+! XTerm*colorRV:              #f8f8f2
 
 ! Box characters settings
 XTerm*forceBoxChars:        true
@@ -120,27 +120,27 @@ XTerm*decTerminalID:        vt382
 ! Color Scheme - Rose Pine
 ! Normal colors
 XTerm*color0:               #26233a
-XTerm*color1:               #eb6f92
-XTerm*color2:               #9ccfd8
-XTerm*color3:               #f6c177
-XTerm*color4:               #31748f
-XTerm*color5:               #c4a7e7
-XTerm*color6:               #ebbcba
-XTerm*color7:               #e0def4
+XTerm*color1:               #f92672
+XTerm*color2:               #a6e22e
+XTerm*color3:               #e6db74
+XTerm*color4:               #66d9ef
+XTerm*color5:               #fd971f
+XTerm*color6:               #ae81ff
+XTerm*color7:               #f8f8f2
 
 ! Bright colors
 XTerm*color8:               #6e6a86
-XTerm*color9:               #eb6f92
-XTerm*color10:              #9ccfd8
-XTerm*color11:              #f6c177
-XTerm*color12:              #31748f
-XTerm*color13:              #c4a7e7
-XTerm*color14:              #ebbcba
-XTerm*color15:              #e0def4
+XTerm*color9:               #f92672
+XTerm*color10:              #a6e22e
+XTerm*color11:              #e6db74
+XTerm*color12:              #66d9ef
+XTerm*color13:              #fd971f
+XTerm*color14:              #ae81ff
+XTerm*color15:              #f8f8f5
 
 ! Basic background and foreground
 XTerm*background:           #000000
-XTerm*foreground:           #e0def4
+XTerm*foreground:           #f8f8f2
 
 ! To copy between xterm and other programs/documents/...
 XTerm*selectToClipboard: true
