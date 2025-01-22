@@ -12,6 +12,10 @@ set smartcase             " Smart case-sensitive search
 set ignorecase            " Ignore case in search
 set ideajoin              " Use IntelliJ's join line behavior
 set clipboard+=unnamed    " Use system clipboard
+set signcolumn=yes
+set wrap
+set termguicolors
+set undofile
 
 " Plugin Settings
 set NERDTree
@@ -111,10 +115,14 @@ let g:NERDTreeMapPreview = 'O'
 
 " Navigation and Movement Improvements
 " Center screen after jumps and searches
-nnoremap <c-d> <c-d>zz
-nnoremap <c-u> <c-u>zz
+nnoremap <C-d> <c-d>zz
+nnoremap <C-u> <c-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap G Gzz
+nnoremap gg ggzz
+nnoremap gd gdzz
+inoremap <C-c> <Esc>
 
 " File and Project Navigation
 nmap <leader>e :NERDTreeToggle<CR>
@@ -154,6 +162,8 @@ nnoremap <leader>rf :action ShowReformatFileDialog<CR>
 nmap [d :action GotoPreviousError<CR>
 nmap ]d :action GotoNextError<CR>
 nnoremap <leader>ll :action ActivateProblemsViewToolWindow<CR>
+" Open diagnostic under cursor
+map gl :call VimDiagnosticUnderCursor()<CR>
 
 " Buffer and Tab Management
 nnoremap [b :bnext<CR>
@@ -176,10 +186,10 @@ xnoremap > >gv
 nmap <leader>no :nohlsearch<CR>
 
 " IDE Action Shortcuts
-nnoremap <c-a> :action GotoAction<CR>
-nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
-nnoremap <c-r> :action RunMenu<CR>
-nnoremap <c-g> :action Generate<CR>
+nnoremap <C-a> :action GotoAction<CR>
+nnoremap <C-S-t> :action ActivateTerminalToolWindow<CR>
+nnoremap <C-r> :action RunMenu<CR>
+nnoremap <C-g> :action Generate<CR>
 nnoremap <leader><Tab> :action ShowNavBar<CR>
 nnoremap <leader>cr :action RunClass<CR>
 
@@ -203,8 +213,14 @@ nmap <leader>mw :action ToolWindowsGroup<CR>
 nmap <leader>cc :action HideActiveWindow<CR>
 
 " Handler Settings for Consistent Vim Behavior
-sethandler <c-j> a:vim
-sethandler <c-k> a:vim
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+
+" Harpoon
+nnoremap <C-a> :action ShowHarpoon<CR>
+nnoremap <C-s> :action AddToHarpoon<CR>
+nnoremap H :action GotoHarpoon1<CR>
+nnoremap L :action GotoHarpoon2<CR>
 
 " Recommended Plugins
 Plug 'preservim/nerdtree'
