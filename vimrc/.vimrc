@@ -137,6 +137,7 @@ let g:CodeRunnerCommandMap = {
                   \ 'cpp' : 'g++ -std=c++17 $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt',
                   \ 'c' : 'gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt',
                   \ 'java' : 'javac $fileName && java $fileNameWithoutExt',
+                  \ 'cs' : 'mcs $fileName && mono $fileNameWithoutExt.exe',
                   \ 'go' : 'go run $fileName',
                   \ 'javascript' : 'node $fileName',
                   \ 'typescript' : 'ts-node $fileName',

@@ -53,7 +53,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 # packages
 sudo apt install nala -y 
-sudo nala install ripgrep fd-find xclip tmux zsh fzf zoxide rofi lsd btop ninja-build gettext cmake curl build-essential -y
+sudo nala install ripgrep fd-find xclip tmux zsh fzf zoxide rofi lsd btop ninja-build gettext cmake curl build-essential python3-pip pipx -y
 
 #dotfiles symlinks
 ln -sf ~/opt/dotfiles/zsh/.zshrc ~/.zshrc
