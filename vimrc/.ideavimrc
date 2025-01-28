@@ -16,6 +16,8 @@ set signcolumn=yes
 set wrap
 set termguicolors
 set undofile
+set list
+set listchars=eol:↴,tab:\ \ ┊,extends:»,precedes:«,trail:·
 
 " Plugin Settings
 set NERDTree
@@ -31,7 +33,7 @@ let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_DefaultDelay = 30
 
 " WhichKey Descriptions for File and Project Navigation
-let g:WhichKeyDesc_file_explorer = "<leader>e Toggle NERDTree"
+let g:WhichKeyDesc_file_explorer = "<leader>e NERDTree"
 let g:WhichKeyDesc_goto_file = "<C-p> Go to File"
 let g:WhichKeyDesc_recent_files = "<C-e> Recent Files"
 
@@ -67,9 +69,9 @@ let g:WhichKeyDesc_reformat_file = "<leader>rf Reformat File"
 
 " WhichKey Descriptions for Error Navigation
 let g:WhichKeyDesc_error_nav = "Navigation options"
-let g:WhichKeyDesc_prev_error = "[g Previous Error"
-let g:WhichKeyDesc_next_error = "]g Next Error"
-let g:WhichKeyDesc_problems_view = "<leader>ll Show Problems View"
+let g:WhichKeyDesc_prev_error = "[d Previous Error"
+let g:WhichKeyDesc_next_error = "]d Next Error"
+let g:WhichKeyDesc_problems_view = "<leader>ld Show Problems View"
 
 " WhichKey Descriptions for Buffer Management
 let g:WhichKeyDesc_buffer_nav = "Buffer Navigation"
@@ -81,8 +83,8 @@ let g:WhichKeyDesc_clipboard = "<leader>y/p Clipboard operations"
 
 " WhichKey Descriptions for IDE Actions
 let g:WhichKeyDesc_ide_actions = "IDE Actions"
-let g:WhichKeyDesc_goto_action = "<C-a> Go to Action"
-let g:WhichKeyDesc_terminal = "<C-t> Open Terminal"
+let g:WhichKeyDesc_goto_action = "<C-S-a> Go to Action"
+let g:WhichKeyDesc_terminal = "<C-S-t> Open Terminal"
 let g:WhichKeyDesc_run_menu = "<C-r> Run Menu"
 let g:WhichKeyDesc_generate = "<C-g> Generate"
 let g:WhichKeyDesc_navbar = "<leader><Tab> Show Navigation Bar"
@@ -127,7 +129,7 @@ inoremap <C-c> <Esc>
 " File and Project Navigation
 nmap <leader>e :NERDTreeToggle<CR>
 nnoremap <C-p> :action GotoFile<CR>
-nnoremap <c-e> :action RecentFiles<CR>
+nnoremap <C-e> :action RecentFiles<CR>
 
 " Enhanced Search and Find
 nnoremap <leader>sw :action FindInPath<CR>
@@ -141,6 +143,9 @@ nmap gi :action GotoImplementation<CR>
 nmap gI :action QuickImplementations<CR>
 nmap go :action GotoSuperMethod<CR>
 nmap gr :action FindUsages<CR>
+
+" Open diagnostic under cursor
+nmap gl :action ShowErrorDescription<CR>
 
 " Refactoring and Code Actions
 " Comprehensive Refactoring Shortcuts
@@ -161,9 +166,8 @@ nnoremap <leader>rf :action ShowReformatFileDialog<CR>
 " Error and Diagnostics Navigation
 nmap [d :action GotoPreviousError<CR>
 nmap ]d :action GotoNextError<CR>
-nnoremap <leader>ll :action ActivateProblemsViewToolWindow<CR>
-" Open diagnostic under cursor
-map gl :call VimDiagnosticUnderCursor()<CR>
+nnoremap <leader>ld :action ActivateProblemsViewToolWindow<CR>
+
 
 " Buffer and Tab Management
 nnoremap [b :bnext<CR>
@@ -185,8 +189,11 @@ xnoremap > >gv
 " Clear Search Highlight
 nmap <leader>no :nohlsearch<CR>
 
+" Local History
+nmap <leader>u :action LocalHistory<CR>
+
 " IDE Action Shortcuts
-nnoremap <C-a> :action GotoAction<CR>
+nnoremap <C-S-a> :action GotoAction<CR>
 nnoremap <C-S-t> :action ActivateTerminalToolWindow<CR>
 nnoremap <C-r> :action RunMenu<CR>
 nnoremap <C-g> :action Generate<CR>
