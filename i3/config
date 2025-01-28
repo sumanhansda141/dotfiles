@@ -65,7 +65,7 @@ set $border-marked #91231c
 
 # Window Colors
 # class                 border          background      text            indicator       child_border
-client.focused          $border-focus   $bg-focus       $fg-focus      $border-focus   $border-focus
+client.focused          $border-focus   $bg-focus       $fg-focus      $bg-normal   $border-focus
 client.unfocused        $border-normal  $bg-normal      $fg-normal     $border-normal  $border-normal
 client.focused_inactive $border-normal  $bg-minimize    $fg-minimize   $border-normal  $border-normal
 client.urgent           $bg-urgent      $bg-urgent      $fg-urgent     $bg-urgent      $bg-urgent

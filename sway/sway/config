@@ -2,19 +2,23 @@
 # Appearance and Theming #
 #========================#
 # Declare Colors:
-set $background #332b2b
-set $color_urgent #fb4934
-set $text_color #ffffff
-set $title_bg_unfocused #666666
-set $title_outline_active #cba6f7
-set $title_outline_unfocused #332b2b
+set $bg-normal     #222222
+set $bg-focus      #535d6c
+set $bg-urgent     #ff0000
+set $bg-minimize   #444444
+set $fg-normal     #aaaaaa
+set $fg-focus      #ffffff
+set $fg-urgent     #ffffff
+set $fg-minimize   #ffffff
+set $border-normal #000000
+set $border-focus  #535d6c
+set $border-marked #91231c
 
 # Set Colors:           Border                   Background          Text          Indicator             Child Border
-client.background       $background
-client.focused          $title_outline_active    $background         $text_color   $title_outline_active $title_outline_active
-client.focused_inactive $title_outline_unfocused $background         $text_color   $text_color           $title_outline_unfocused
-client.unfocused        $title_outline_unfocused $title_bg_unfocused $text_color   $title_outline_active
-client.urgent           $color_urgent            $color_urgent       $color_urgent $color_urgent         $color_urgent
+client.focused          $border-focus   $bg-focus       $fg-focus      $bg-normal   $border-focus
+client.unfocused        $border-normal  $bg-normal      $fg-normal     $border-normal  $border-normal
+client.focused_inactive $border-normal  $bg-minimize    $fg-minimize   $border-normal  $border-normal
+client.urgent           $bg-urgent      $bg-urgent      $fg-urgent     $bg-urgent      $bg-urgent
 
 # Add gaps in between all application windows:
 gaps inner 0
@@ -24,7 +28,7 @@ gaps outer 0
 default_border pixel 4
 
 # Set the Wallpaper:
-# output * bg $HOME/Pictures/wallpapers/wallhaven-rrx7jj.jpg fill
+output * bg $HOME/Pictures/wallpapers/dcep12_pc.png fill
 
 # Keyboard
 input * {
@@ -51,10 +55,10 @@ bar {
 # Keyboard Shortcuts (Sway-specific) #
 #====================================#
 # Set the modifier key to super:
-set $mod Mod4
+set $mod Mod1
 
 # Set the ALT key to $alt (since Mod1 is harder to remember):
-set $alt Mod1
+# set $alt Mod1
 
 # Set up a shortcut to reload this config file:
 bindsym $mod+Shift+c reload

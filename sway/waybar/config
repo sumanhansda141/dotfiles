@@ -58,7 +58,7 @@
         "format": "{}",
         "signal": 8,
         "interval": "once",
-        "exec": "/home/suman/.config/sway/audio.sh",
+        "exec": "~/.config/sway/audio.sh",
         "on-click": "pavucontrol",
     },
 
