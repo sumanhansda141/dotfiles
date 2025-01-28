@@ -131,6 +131,10 @@ nmap <leader>e :NERDTreeToggle<CR>
 nnoremap <C-p> :action GotoFile<CR>
 nnoremap <C-e> :action RecentFiles<CR>
 
+" Bookmarks
+nnoremap m :action ToggleBookmark<CR>
+nnoremap <C-m> :action ShowBookmarks<CR>
+
 " Enhanced Search and Find
 nnoremap <leader>sw :action FindInPath<CR>
 nnoremap <leader>sg :action TextSearchAction<CR>
