@@ -1,8 +1,5 @@
 local M = {
 	"echasnovski/mini.nvim",
-	dependencies = {
-		"SmiteshP/nvim-snacks",
-	},
 	version = "*",
 	init = function()
 		package.preload["nvim-web-devicons"] = function()
