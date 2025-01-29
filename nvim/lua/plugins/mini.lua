@@ -1,5 +1,8 @@
 local M = {
 	"echasnovski/mini.nvim",
+	dependencies = {
+		"SmiteshP/nvim-snacks",
+	},
 	version = "*",
 	init = function()
 		package.preload["nvim-web-devicons"] = function()
@@ -54,5 +57,12 @@ function M.config()
 	vim.keymap.set("n", "<leader>e", function()
 		MiniFiles.open()
 	end, { silent = true })
+
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "MiniFilesActionRename",
+		callback = function(event)
+			Snacks.rename.on_rename_file(event.data.from, event.data.to)
+		end,
+	})
 end
 return M
