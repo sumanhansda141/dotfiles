@@ -58,16 +58,27 @@ function M.config()
 	local servers = {
 		-- Simple servers (using default config)
 		"lua_ls",
-		"rust_analyzer",
-		"ocamllsp",
 		"vtsls",
 		"bashls",
-		"clojure_lsp",
 		"emmet_language_server",
-		"gopls",
 		"html",
 
-		-- Servers with custom configs
+		-- Servers with custom configs and the servers you don't want to install via mason
+		["ruby_lsp"] = {},
+        ["ocamllsp"] = {},
+		["clangd"] = {
+			filetypes = { "c", "cpp" },
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--header-insertion=iwyu",
+				"--completion-style=detailed",
+			},
+		},
+		["sourcekit"] = {
+			filetypes = { "swift", "objc", "objcpp" },
+		},
 		["rust_analyzer"] = {
 			settings = {
 				["rust-analyzer"] = {
@@ -116,24 +127,6 @@ function M.config()
 			lspconfig[server].setup(server_config)
 		end
 	end
-
-	-- Additional server setups
-	lspconfig.sourcekit.setup(vim.tbl_deep_extend("force", default_config, {
-		filetypes = { "swift", "objc", "objcpp" },
-	}))
-
-	lspconfig.clangd.setup(vim.tbl_deep_extend("force", default_config, {
-		filetypes = { "c", "cpp" },
-		cmd = {
-			"clangd",
-			"--background-index",
-			"--clang-tidy",
-			"--header-insertion=iwyu",
-			"--completion-style=detailed",
-		},
-	}))
-
-	lspconfig.ruby_lsp.setup(vim.tbl_deep_extend("force", default_config, {}))
 
 	-- LSP attach configuration
 	vim.api.nvim_create_autocmd("LspAttach", {
@@ -206,16 +199,7 @@ function M.config()
 		},
 	})
 	require("mason-lspconfig").setup({
-		ensure_installed = {
-			"lua_ls",
-			"basedpyright",
-			"ruff",
-			"gopls",
-			"html",
-			"emmet_language_server",
-			"bashls",
-			"vtsls",
-		},
+		ensure_installed = servers;
 		automatic_installation = true,
 	})
 
