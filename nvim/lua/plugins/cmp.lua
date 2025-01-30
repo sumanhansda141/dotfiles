@@ -122,6 +122,14 @@ function M.config()
 			end,
 		},
 	})
+
+	-- Setup vim-dadbod
+	cmp.setup.filetype({ "sql" }, {
+		sources = {
+			{ name = "vim-dadbod-completion" },
+			{ name = "buffer" },
+		},
+	})
 end
 
 return M

@@ -17,3 +17,8 @@ export PATH="$HOME/opt/clang+llvm-17.0.6-x86_64-linux-gnu-ubuntu-22.04/bin:$PATH
 
 # Cargo (Rust) configuration
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Ruby gem
+export GEM_HOME=$HOME/.local/bin/gem
+export GEM_PATH=$HOME/.local/bin/gem
+export PATH="$HOME/.local/bin/gem/bin:$PATH"

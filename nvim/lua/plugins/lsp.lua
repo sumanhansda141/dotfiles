@@ -40,8 +40,11 @@ function M.config()
 
 	local lspconfig = require("lspconfig")
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 	-- Common LSP settings
 	local default_config = {
+		capabilities = capabilities,
 		root_dir = function()
 			return vim.loop.cwd()
 		end,
@@ -129,6 +132,8 @@ function M.config()
 		},
 	}))
 
+	lspconfig.ruby_lsp.setup(vim.tbl_deep_extend("force", default_config, {}))
+
 	-- LSP attach configuration
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -177,6 +182,13 @@ function M.config()
 					group = group,
 					buffer = bufnr,
 					callback = vim.lsp.buf.clear_references,
+				})
+				vim.api.nvim_create_autocmd("LspDetach", {
+					group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+					callback = function(event2)
+						vim.lsp.buf.clear_references()
+						vim.api.nvim_clear_autocmds({ group = "LspDocumentHighlight", buffer = event2.buf })
+					end,
 				})
 			end
 		end,

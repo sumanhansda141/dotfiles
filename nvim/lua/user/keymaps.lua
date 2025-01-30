@@ -46,7 +46,12 @@ keymap("n", "G", "Gzz")
 keymap("n", "<leader>no", "<cmd>nohlsearch<CR>", opts)
 
 --Terminal
-keymap("n", "<leader>tt", ":split | terminal<CR>", opts)
+keymap("n", "<leader>tt", function()
+	vim.cmd.new()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	job_id = vim.bo.channel
+end, opts)
 keymap("t", "<Esc>", "<C-\\><C-n>", opts)
 
 --QuickfixList
