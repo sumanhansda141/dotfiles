@@ -11,7 +11,7 @@ config.warn_about_missing_glyphs = false
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 config.font_size = 15
 config.window_background_opacity = 0.83
-config.color_scheme = "Vs Code Dark+ (Gogh)"
+config.color_scheme = "Molokai"
 config.colors = {
 	background = "black",
 }
