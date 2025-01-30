@@ -65,7 +65,7 @@ function M.config()
 
 		-- Servers with custom configs and the servers you don't want to install via mason
 		["ruby_lsp"] = {},
-        ["ocamllsp"] = {},
+		["ocamllsp"] = {},
 		["clangd"] = {
 			filetypes = { "c", "cpp" },
 			cmd = {
@@ -199,7 +199,7 @@ function M.config()
 		},
 	})
 	require("mason-lspconfig").setup({
-		ensure_installed = servers;
+		ensure_installed = servers,
 		automatic_installation = true,
 	})
 
