@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install i3 picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop -y
+sudo apt install awesome acpi picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop -y
 
 ln -sf ~/opt/dotfiles/scripts ~/.config/scripts
 ln -sf ~/opt/dotfiles/nvim ~/.config/nvim
@@ -21,6 +21,7 @@ ln -sf ~/opt/dotfiles/btop/btop.conf ~/.config/btop/btop.conf
 if [ ! -d ~/.local/share/fonts ]; then
     mkdir ~/.local/share/fonts
 fi && \
+
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip && \
 cd ~/.local/share/fonts && \
 unzip JetBrainsMono.zip && \
