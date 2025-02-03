@@ -566,7 +566,9 @@ end)
 client.connect_signal("focus", function(c) c.border_rolor = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
 awful.util.spawn("picom")
 awful.util.spawn("nitrogen --restore")
 awful.util.spawn("nm-applet &")
 awful.util.spawn("~/opt/dotfiles/i3/scripts/touchpad &")
+awful.util.spawn("/usr/libexec/polkit-mate-authentication-agent-1 &")

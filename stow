@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-sudo apt install awesome acpi picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop -y
+sudo apt install awesome acpi picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop slock pavucontrol -y
 
 ln -sf ~/opt/dotfiles/scripts ~/.config/scripts
 ln -sf ~/opt/dotfiles/nvim ~/.config/nvim
-ln -sf ~/opt/dotfiles/i3 ~/.config/i3
+ln -sf ~/opt/dotfiles/awesome ~/.config/awesome
 ln -sf ~/opt/dotfiles/awesome-config/rofi ~/.config/rofi
 ln -sf ~/opt/dotfiles/picom ~/.config/picom
+if [ ! -d ~/.config/btop ]; then
+    mkdir ~/.config/btop
+fi && \
+ln -sf ~/opt/dotfiles/btop/btop.conf ~/.config/btop/btop.conf
 
 ln -sf ~/opt/dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/opt/dotfiles/zsh/.zshenv ~/.zshenv
@@ -27,5 +31,15 @@ cd ~/.local/share/fonts && \
 unzip JetBrainsMono.zip && \
 rm JetBrainsMono.zip && \
 fc-cache -fv
+
+# Install neovim btw
+if [ ! -d ~/opt/neovim ]; then
+    git clone https://github.com/neovim/neovim ~/opt/neovim
+    cd ~/opt/neovim || exit
+    git checkout stable
+    make CMAKE_BUILD_TYPE=RelWithDebInfo
+    sudo make install
+    cd ..
+fi
 
 chsh -s $(which zsh)
