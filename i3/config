@@ -71,7 +71,7 @@ client.focused_inactive $border-normal  $bg-minimize    $fg-minimize   $border-n
 client.urgent           $bg-urgent      $bg-urgent      $fg-urgent     $bg-urgent      $bg-urgent
 
 #Borders
-for_window [class="^.*"] border pixel 3
+for_window [all] title_window_icon on
 gaps inner 10
 gaps outer 1
 
