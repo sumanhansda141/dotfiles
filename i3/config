@@ -72,6 +72,7 @@ client.urgent           $bg-urgent      $bg-urgent      $fg-urgent     $bg-urgen
 
 #Borders
 for_window [all] title_window_icon on
+for_window [window_type="normal"] border normal
 gaps inner 10
 gaps outer 1
 
