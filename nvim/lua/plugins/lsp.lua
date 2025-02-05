@@ -76,6 +76,9 @@ function M.config()
 				"--completion-style=detailed",
 			},
 		},
+		["omnisharp"] = {
+			cmd = { "dotnet", os.getenv("HOME") .. "/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+		},
 		["sourcekit"] = {
 			filetypes = { "swift", "objc", "objcpp" },
 		},
