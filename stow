@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-sudo apt install awesome acpi picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop slock pavucontrol -y
+sudo apt install awesome acpi picom nitrogen lxappearance rofi lsd zsh tmux fzf xclip ripgrep fd-find zoxide mate-polkit btop slock pavucontrol ninja-build gettext cmake curl build-essential -y
 
 ln -sf ~/opt/dotfiles/scripts ~/.config/scripts
 ln -sf ~/opt/dotfiles/nvim ~/.config/nvim
 ln -sf ~/opt/dotfiles/awesome ~/.config/awesome
-ln -sf ~/opt/dotfiles/awesome-config/rofi ~/.config/rofi
+ln -sf ~/opt/dotfiles/rofi ~/.config/rofi
 ln -sf ~/opt/dotfiles/picom ~/.config/picom
 if [ ! -d ~/.config/btop ]; then
     mkdir ~/.config/btop
