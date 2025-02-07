@@ -25,7 +25,7 @@ function M.config()
 		"n",
 		"<leader>rb",
 		"<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<CR>",
-		{ desc = "search word under cursor" }
+		{ desc = "repalce in buffer" }
 	)
 end
 return M
