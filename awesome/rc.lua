@@ -453,6 +453,7 @@ awful.rules.rules = {
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
+                     size_hints_honor = false,
                      raise = true,
                      keys = clientkeys,
                      buttons = clientbuttons,
@@ -570,5 +571,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.util.spawn("picom")
 awful.util.spawn("nitrogen --restore")
 awful.util.spawn("nm-applet &")
-awful.util.spawn("~/opt/dotfiles/i3/scripts/touchpad &")
+awful.util.spawn(os.getenv("HOME") .. "/opt/dotfiles/i3/scripts/touchpad &")
 awful.util.spawn("/usr/libexec/polkit-mate-authentication-agent-1 &")
