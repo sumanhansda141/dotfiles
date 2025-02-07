@@ -13,19 +13,19 @@ function M.config()
 		"n",
 		"<leader>rw",
 		"<cmd>lua require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })<CR>",
-		{ desc = "search word under cursor" }
+		{ desc = "replace word under cursor" }
 	)
 	vim.keymap.set(
 		"v",
 		"<leader>rw",
 		"<cmd>lua require('grug-far').with_visual_selection({ prefills = { search = vim.fn.expand('<cword>') } })<CR>",
-		{ desc = "search word under cursor" }
+		{ desc = "replace word under cursor" }
 	)
 	vim.keymap.set(
 		"n",
 		"<leader>rb",
 		"<cmd>lua require('grug-far').open({ prefills = { paths = vim.fn.expand('%') } })<CR>",
-		{ desc = "repalce in buffer" }
+		{ desc = "replace in current buffer" }
 	)
 end
 return M
