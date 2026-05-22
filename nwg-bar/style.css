@@ -1,0 +1,163 @@
+/* =========================================================
+ * Retro dark theme for nwg-bar
+ * Matching Hyprland + Waybar + tmux palette
+ * ========================================================= */
+
+window {
+	background-color: rgba(0, 0, 0, 0.92);
+
+	border: 2px solid #259185;
+
+	border-radius: 14px;
+}
+
+/* =========================================================
+ * Containers
+ * ========================================================= */
+
+#outer-box {
+	margin: 4px;
+}
+
+#inner-box {
+	background-color: rgba(0, 0, 0, 0.95);
+
+	border-radius: 12px;
+
+	border-style: solid;
+	border-width: 1px;
+	border-color: #002731;
+
+	padding: 18px;
+	margin: 5px;
+}
+
+/* =========================================================
+ * Base styling
+ * ========================================================= */
+
+button,
+image {
+	background: none;
+
+	border: none;
+	box-shadow: none;
+
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 15px;
+}
+
+button {
+	background-color: #000000;
+
+	color: #fcf4dc;
+
+	border-radius: 10px;
+
+	border: 1px solid #002731;
+
+	padding: 14px 22px;
+
+	margin: 6px;
+
+	font-weight: 500;
+
+	min-width: 120px;
+
+	transition: all 0.15s ease-in-out;
+}
+
+button:hover {
+	background-color: #002731;
+
+	color: #fcf4dc;
+
+	border-color: #259185;
+
+	box-shadow: none;
+}
+
+/* =========================================================
+ * Individual buttons
+ * ========================================================= */
+
+/* Lock */
+button:nth-child(1) {
+	border-color: #2075c7;
+
+	color: #2075c7;
+}
+
+button:nth-child(1):hover {
+	background-color: #001e26;
+
+	border-color: #2075c7;
+
+	color: #fcf4dc;
+}
+
+/* Logout */
+button:nth-child(2) {
+	border-color: #728905;
+
+	color: #728905;
+}
+
+button:nth-child(2):hover {
+	background-color: #001e26;
+
+	border-color: #728905;
+
+	color: #fcf4dc;
+}
+
+/* Reboot */
+button:nth-child(3) {
+	border-color: #259185;
+
+	color: #259185;
+}
+
+button:nth-child(3):hover {
+	background-color: #001e26;
+
+	border-color: #259185;
+
+	color: #fcf4dc;
+}
+
+/* Shutdown */
+button:nth-child(4) {
+	border-color: #d01b24;
+
+	color: #d01b24;
+}
+
+button:nth-child(4):hover {
+	background-color: #001e26;
+
+	border-color: #d01b24;
+
+	color: #fcf4dc;
+}
+
+/* =========================================================
+ * Icons
+ * ========================================================= */
+
+image {
+	margin-right: 10px;
+
+	min-width: 22px;
+	min-height: 22px;
+}
+
+/* =========================================================
+ * Labels
+ * ========================================================= */
+
+label {
+	font-weight: 500;
+
+	color: inherit;
+}

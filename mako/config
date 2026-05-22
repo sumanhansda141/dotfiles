@@ -1,0 +1,39 @@
+max-visible=10
+layer=top
+
+font=JetBrainsMono Nerd Font Mono 10
+
+# Base colors
+background-color=#000000
+text-color=#fcf4dc
+
+# Main accent
+border-color=#259185
+
+border-radius=8
+border-size=2
+
+max-icon-size=48
+
+default-timeout=10000
+
+anchor=top-right
+margin=20
+
+# Slight transparency
+background-opacity=0.92
+
+[urgency=low]
+border-color=#708183
+text-color=#708183
+default-timeout=3000
+
+[urgency=normal]
+border-color=#259185
+text-color=#fcf4dc
+default-timeout=5000
+
+[urgency=high]
+border-color=#d01b24
+text-color=#fcf4dc
+default-timeout=10000
