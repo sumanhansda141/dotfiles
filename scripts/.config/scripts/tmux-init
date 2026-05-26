@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
-
 selected_name=$(pwd | sed 's/.*\///g' | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux -u new-session -s $selected_name
-	exit 0
+# Not inside tmux
+if [[ -z $TMUX ]]; then
+    if [[ -z $tmux_running ]]; then
+        # No tmux running at all — create and attach
+        tmux -u new-session -s $selected_name
+    elif tmux -u has-session -t=$selected_name 2>/dev/null; then
+        # Session exists — attach to it
+        tmux -u attach-session -t $selected_name
+    else
+        # Tmux running but session doesn't exist — create and attach
+        tmux -u new-session -s $selected_name
+    fi
+else
+    # Already inside tmux — create detached if needed, then switch
+    if ! tmux -u has-session -t=$selected_name 2>/dev/null; then
+        tmux -u new-session -ds $selected_name
+    fi
+    tmux -u switch-client -t $selected_name
 fi
-
-if ! tmux -u has-session -t=$selected_name 2>/dev/null; then
-	tmux -u new-session -ds $selected_name
-fi
-
-tmux -u switch-client -t $selected_name
-

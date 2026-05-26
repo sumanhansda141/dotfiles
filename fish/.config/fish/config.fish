@@ -79,6 +79,7 @@ end
 
 alias ti="tmux-init"
 alias ta="tmux attach"
+alias tmux="tmux -u"
 alias tree="eza -T"
 alias lf="yazi"
 alias btop="btop --force-utf"
