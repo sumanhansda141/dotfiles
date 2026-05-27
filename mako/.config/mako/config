@@ -4,7 +4,7 @@ layer=top
 font=JetBrainsMono Nerd Font Mono 10
 
 # Base colors
-background-color=#000000
+background-color=#000000e6
 text-color=#fcf4dc
 
 # Main accent
@@ -19,9 +19,6 @@ default-timeout=10000
 
 anchor=top-right
 margin=20
-
-# Slight transparency
-background-opacity=0.92
 
 [urgency=low]
 border-color=#708183
