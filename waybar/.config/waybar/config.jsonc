@@ -96,7 +96,7 @@
 
     "custom/launcher":{
         "format": " ",
-        "on-click": "rofi -show drun",
+        "on-click": "fuzzel show drun",
         "on-click-right": "killall rofi",
         "tooltip": true,
         "tooltip-format": "Application Launcher"
