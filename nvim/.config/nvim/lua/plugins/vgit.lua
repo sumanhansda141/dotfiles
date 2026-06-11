@@ -7,7 +7,7 @@ function M.config()
 	require("vgit").setup({
 		settings = {
 			live_blame = {
-				enabled = true,
+				enabled = false,
 			},
 			live_gutter = {
 				enabled = true,
