@@ -1,6 +1,11 @@
 local M = {
 	"folke/trouble.nvim",
-	opts = {},
+	opts = {
+		win = {
+			position = "right",
+			size = 40,
+		},
+	},
 	cmd = "Trouble",
 	keys = {
 		{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
