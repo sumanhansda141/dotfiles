@@ -5,7 +5,7 @@
 -- Set programs that you use
 local terminal = "kitty"
 local fileManager = "dolphin"
-local menu = "fuzzel"
+local menu = "rofi"
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -20,9 +20,10 @@ hl.bind(
 	"ALT + SHIFT + Q",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu .. " -show drun"))
+hl.bind(mainMod .. " + CTRL + D", hl.dsp.exec_cmd(menu .. " -show window"))
 hl.bind(mainMod .. " + Z", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("cliphist list | " .. menu .. " -dmenu -display-columns 2 | cliphist decode | wl-copy"))
 
 -- window state management
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 0 }))

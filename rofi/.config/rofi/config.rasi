@@ -1,0 +1,100 @@
+configuration {
+    modi:               "drun,run,window";
+    font:               "JetBrainsMono Nerd Font 13";
+    show-icons:         true;
+    icon-theme:         "Adwaita";
+    terminal:           "kitty";
+    drun-display-format: "{name}";
+    disable-history:    false;
+    sidebar-mode:       false;
+}
+
+@theme "/dev/null"
+
+* {
+    bg:                  #000000e6;
+    fg:                  #708183ff;
+    prompt-color:        #fcf4dcff;
+    placeholder-color:   #465a61ff;
+    accent:              #259185ff;
+
+    selected-bg:         #002731ff;
+    selected-fg:         #fcf4dcff;
+    match-fg:            #2075c7ff;
+
+    background-color:    transparent;
+    text-color:          @fg;
+}
+
+window {
+    background-color:   @bg;
+    border:             3px;
+    border-color:       @accent;
+    border-radius:      8px;
+    width:              50ch;
+    padding:            10px 20px;
+}
+
+mainbox {
+    children:           [ inputbar, listview ];
+    spacing:            12px;
+}
+
+inputbar {
+    children:           [ prompt, entry ];
+    spacing:            12px;
+}
+
+prompt {
+    text-color:         @prompt-color;
+}
+
+entry {
+    text-color:         @prompt-color;
+    placeholder:        "Search...";
+    placeholder-color:  @placeholder-color;
+}
+
+listview {
+    lines:              15;
+    columns:            1;
+    fixed-height:       true;
+    spacing:            6px;
+}
+
+element {
+    padding:            4px 8px;
+    border-radius:      4px;
+    children:           [ element-icon, element-text ];
+    spacing:            12px;
+}
+
+element normal normal, element alternate normal {
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+element selected normal {
+    background-color:   @selected-bg;
+    text-color:         @selected-fg;
+}
+
+element-icon {
+    size:               1.2em;
+}
+
+element-text {
+    text-color:         inherit;
+}
+
+element-text selected {
+    text-color:         @selected-fg;
+}
+
+highlight {
+    text-color:         @accent;
+}
+
+element selected normal highlight {
+    text-color:         @match-fg;
+}
