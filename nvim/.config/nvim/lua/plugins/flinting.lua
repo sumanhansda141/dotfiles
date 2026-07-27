@@ -67,6 +67,7 @@ function M.config()
 			jsonc = { "prettierd", "prettier", stop_after_first = true },
 			yaml = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "prettierd", "prettier", stop_after_first = true },
+			ocaml = { "ocamlformat" },
 
 			-- Go (order matters: fix style → sort imports → wrap long lines)
 			go = { "gofumpt", "goimports_reviser", "golines" },

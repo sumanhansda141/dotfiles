@@ -42,7 +42,6 @@ end
 
 -- ─── Server Configurations ──────────────────────────────────────────────────
 vim.lsp.enable("clangd")
-vim.lsp.enable("rust-analyzer")
 
 local servers = {
 
@@ -204,12 +203,14 @@ local servers = {
 
 -- ─── Tools (formatters / linters / debuggers) managed by mason-tool-installer
 local tools = {
+	-- Bash
+	"shellcheck",
+	"shfmt",
 	-- JS/TS
 	"eslint_d",
 	"prettierd",
 	"prettier",
 	"emmet-language-server",
-	"js-debug-adapter",
 	-- Python
 	"ruff",
 	"debugpy",
@@ -222,7 +223,7 @@ local tools = {
 function M.config()
 	-- ── LspAttach keymaps & features ────────────────────────────────────────
 	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+		group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 		callback = function(event)
 			local map = function(keys, func, desc, mode)
 				mode = mode or "n"
@@ -298,7 +299,7 @@ function M.config()
 				highlight_ft[ft]
 				and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
 			then
-				local hl_group = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+				local hl_group = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 				vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 					buffer = event.buf,
 					group = hl_group,
@@ -310,10 +311,10 @@ function M.config()
 					callback = vim.lsp.buf.clear_references,
 				})
 				vim.api.nvim_create_autocmd("LspDetach", {
-					group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+					group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
 					callback = function(ev2)
 						vim.lsp.buf.clear_references()
-						vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = ev2.buf })
+						vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = ev2.buf })
 					end,
 				})
 			end

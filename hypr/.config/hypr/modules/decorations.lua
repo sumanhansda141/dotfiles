@@ -70,7 +70,7 @@ hl.config({
 
 			-- Typography
 			text_color = "rgb(fcf4dc)",
-			font_family = "JetBrainsMono Nerd Font Mono",
+			font_family = "Iosevka Nerd Font Mono",
 			font_size = 10,
 
 			-- Layout

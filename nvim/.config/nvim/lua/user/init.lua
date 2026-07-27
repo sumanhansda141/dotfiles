@@ -1,3 +1,4 @@
+require("user.autcmds")
 require("user.keymaps")
 require("user.statusline")
 require("user.options")
