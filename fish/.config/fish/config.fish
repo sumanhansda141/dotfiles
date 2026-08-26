@@ -13,6 +13,14 @@ set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx GOPATH $HOME/.local/share/go
 fish_add_path $GOPATH/bin /usr/local/go/bin
 
+# OPAM
+if test -r $HOME/.opam/opam-init/init.fish
+    source $HOME/.opam/opam-init/init.fish 2>/dev/null
+end
+
+# opencode
+fish_add_path $HOME/.opencode/bin
+
 # ============================================================
 # PATH
 # ============================================================
