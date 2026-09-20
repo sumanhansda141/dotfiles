@@ -42,6 +42,7 @@ end
 
 -- ─── Server Configurations ──────────────────────────────────────────────────
 vim.lsp.enable("clangd")
+vim.lsp.enable("ocamllsp")
 
 local servers = {
 
