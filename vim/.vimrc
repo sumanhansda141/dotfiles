@@ -66,6 +66,13 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 27
 let g:netrw_bufsettings='wru,nr'
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+augroup FixNetrwDelete
+  autocmd!
+  " Mark the buffer as NOT modified every time netrw loads or refreshes
+  autocmd FileType netrw setlocal nomodified
+augroup END
+
 nnoremap <Leader>e :Ex <CR>
 "}}}
 
