@@ -1,156 +1,313 @@
 {
-    "reload_style_on_change": true,
-    "layer": "top",
-    "position": "bottom",
-    "modules-left": ["custom/launcher", "backlight", "wireplumber", "clock"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["network", "cpu", "disk", "memory", "battery", "tray", "custom/power"],
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "bottom",
 
-    "wireplumber": {
-        "tooltip": true,
-        "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 {volume}%",
-        "on-click":"pavucontrol",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "tooltip-format": "Volume: {volume}%"
+  "modules-left": [
+    "custom/launcher",
+    "backlight",
+    "wireplumber",
+    "clock"
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces",
+    "niri/workspaces"
+  ],
+
+  "modules-right": [
+    "network",
+    "cpu",
+    "disk",
+    "memory",
+    "battery",
+    "tray",
+    "custom/notifications",
+    "custom/power"
+  ],
+
+  // =========================================
+  // Audio
+  // =========================================
+
+  "wireplumber": {
+    "tooltip": true,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "on-click": "pavucontrol",
+
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
 
-    "network": {
-        "tooltip": true,
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": "󰖪  offline",
-        "on-click":"kitty -- nmtui",
-        "tooltip-format-wifi": "  {essid}\nIP: {ipaddr}\nSignal: {signalStrength}%",
-        "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}"
+    "tooltip-format": "Volume: {volume}%"
+  },
+
+  // =========================================
+  // Network
+  // =========================================
+
+  "network": {
+    "tooltip": true,
+
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󰖪  offline",
+
+    "on-click": "kitty -- nmtui",
+
+    "tooltip-format-wifi": "  {essid}\nIP: {ipaddr}\nSignal: {signalStrength}%",
+    "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}"
+  },
+
+  // =========================================
+  // Backlight
+  // =========================================
+
+  "backlight": {
+    "tooltip": true,
+    "format": " {}%",
+    "interval": 1,
+
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+
+    "tooltip-format": "Brightness: {percent}%"
+  },
+
+  // =========================================
+  // Battery
+  // =========================================
+
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
     },
 
-    "backlight": {
-        "tooltip": true,
-        "format": " {}%",
-        "interval":1,
-        "on-scroll-down": "brightnessctl s 5%-",
-        "on-scroll-up": "brightnessctl s +5%",
-        "tooltip-format": "Brightness: {percent}%"
-    },
+    "format": "{icon} {capacity}%",
+    "format-time": "{H} hr {M} min",
 
-    "battery": {
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon} {capacity}%",
-        "format-time": "{H} hr {M} min",
-        "format-icons": [
-            "󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
-        ],
-        "format-charging": "󰉁 {capacity}%",
-        "tooltip-format": "Discharging: {time}",
-        "tooltip-format-charging": "Charging: {time}"
-    },
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
 
-    "clock": {
-        "tooltip": true,
-        "format": "󰃰 {:%d-%m %H:%M}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "weeks-pos": "right",
-            "on-scroll": 1,
-            "format": {
-                "months":     "<span color='#2075c7'><b>{}</b></span>",
-                "days":       "<span color='#fcf4dc'><b>{}</b></span>",
-                "weeks":      "<span color='#708183'><b>W{}</b></span>",
-                "weekdays":   "<span color='#259185'><b>{}</b></span>",
-                "today":      "<span color='#a57705'><b><u>{}</u></b></span>"
-            }
-        }
-    },
+    "format-charging": "󰉁 {capacity}%",
 
-    "disk": {
-        "format": " {percentage_used}%",
-        "tooltip": true,
-        "tooltip-format": "Disk : {free} / {total} ({percentage_free}%)"
-    },
+    "tooltip-format": "Discharging: {time}",
+    "tooltip-format-charging": "Charging: {time}"
+  },
 
-    "cpu": {
-        "interval": 15,
-        "format": "  {}%",
-        "max-length": 10,
-        "on-click":"kitty -- btop",
-        "tooltip": true,
-        "tooltip-format": "Usage: {usage}%\nFreq: {avg_frequency}GHz"
-    },
+  // =========================================
+  // Clock
+  // =========================================
 
-    "memory": {
-        "interval": 30,
-        "format": "  {}%",
-        "max-length": 10,
-        "tooltip": true,
-        "tooltip-format": "Usage: {used}/{total}GB ({percentage}%)"
-    },
+  "clock": {
+    "tooltip": true,
+    "format": "󰃰 {:%d-%m %H:%M}",
 
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "fuzzel show drun",
-        "on-click-right": "killall rofi",
-        "tooltip": true,
-        "tooltip-format": "Application Launcher"
-    },
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
 
-    "custom/power":{
-        "format": "󰐥",
-        "on-click": "nwg-bar",
-        "tooltip": true,
-        "tooltip-format": "Power Menu"
-    },
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
 
-    "hyprland/workspaces": {
-        "format": "{name}: {icon}",
-        "format-icons": {
-            "active": " ",
-            "default": " "
-        },
-        "on-click": "activate",
-        "sort-by-number": true,
-        "tooltip": false
-    },
-
-    "niri/workspaces": {
-        "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "0",
-            "active": ""
-        },
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
-        },
-        "sort-by-number": true,
-        "tooltip": false
-    },
-
-    "tray": {
-        "icon-size": 15,
-        "spacing": 5,
-        "tooltip": true
+      "format": {
+        "months": "<span color='#2075c7'><b>{}</b></span>",
+        "days": "<span color='#fcf4dc'><b>{}</b></span>",
+        "weeks": "<span color='#708183'><b>W{}</b></span>",
+        "weekdays": "<span color='#259185'><b>{}</b></span>",
+        "today": "<span color='#a57705'><b><u>{}</u></b></span>"
+      }
     }
+  },
+
+  // =========================================
+  // Disk
+  // =========================================
+
+  "disk": {
+    "format": " {percentage_used}%",
+    "tooltip": true,
+
+    "tooltip-format":
+      "Disk: {free} / {total} ({percentage_free}%)"
+  },
+
+  // =========================================
+  // CPU
+  // =========================================
+
+  "cpu": {
+    "interval": 15,
+    "format": "  {}%",
+    "max-length": 10,
+
+    "on-click": "kitty -- btop",
+
+    "tooltip": true,
+    "tooltip-format":
+      "Usage: {usage}%\nFreq: {avg_frequency}GHz"
+  },
+
+  // =========================================
+  // Memory
+  // =========================================
+
+  "memory": {
+    "interval": 30,
+    "format": "  {}%",
+    "max-length": 10,
+
+    "tooltip": true,
+    "tooltip-format":
+      "Usage: {used}/{total}GB ({percentage}%)"
+  },
+
+  // =========================================
+  // Launcher
+  // =========================================
+
+  "custom/launcher": {
+    "format": "☰",
+
+    "on-click":
+      "~/.config/waybar/scripts/launcher.sh",
+
+    "on-click-right":
+      "~/.config/waybar/scripts/launcher.sh kill",
+
+    "tooltip": true,
+    "tooltip-format": "Application Launcher"
+  },
+
+  // =========================================
+  // SwayNC
+  // =========================================
+
+  "custom/notifications": {
+    "tooltip": true,
+
+    "format": "<span size='16pt'>{icon}</span>",
+
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+
+    "return-type": "json",
+
+    "exec-if": "which swaync-client",
+
+    "exec": "swaync-client -swb",
+
+    "on-click": "swaync-client -t -sw",
+
+    "on-click-right": "swaync-client -d -sw",
+
+    "on-click-middle": "swaync-client -C",
+
+    "escape": true
+  },
+
+  // =========================================
+  // Power
+  // =========================================
+
+  "custom/power": {
+    "format": "󰐥",
+
+    "on-click": "nwg-bar",
+
+    "tooltip": true,
+    "tooltip-format": "Power Menu"
+  },
+
+  // =========================================
+  // Hyprland Workspaces
+  // =========================================
+
+  "hyprland/workspaces": {
+    "format": "{name}: {icon}",
+
+    "format-icons": {
+      "active": " ",
+      "default": " "
+    },
+
+    "on-click": "activate",
+    "sort-by-number": true,
+    "tooltip": false
+  },
+
+  // =========================================
+  // Niri Workspaces
+  // =========================================
+
+  "niri/workspaces": {
+    "on-click": "activate",
+
+    "format": "{icon}",
+
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "active": ""
+    },
+
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+
+    "sort-by-number": true,
+    "tooltip": false
+  },
+
+  // =========================================
+  // Tray
+  // =========================================
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5,
+    "tooltip": true
+  }
 }

@@ -1,0 +1,439 @@
+/* =========================================
+ * GLOBAL
+ * ========================================= */
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 10pt;
+}
+
+
+/* =========================================
+ * NOTIFICATION POPUP
+ * ========================================= */
+
+.notification {
+  background: rgba(0, 0, 0, 0.95);
+  color: #fcf4dc;
+
+  border: 2px solid #259185;
+  border-radius: 8px;
+
+  margin: 10px;
+  padding: 10px;
+}
+
+
+/* Content */
+
+.notification-content {
+  background: transparent;
+}
+
+
+/* Summary */
+
+.summary {
+  color: #fcf4dc;
+  font-weight: bold;
+}
+
+
+/* Body */
+
+.body {
+  color: #e9e2cb;
+}
+
+
+/* =========================================
+ * LOW URGENCY
+ * ========================================= */
+
+.notification.low {
+  border-color: #708183;
+}
+
+.notification.low .summary {
+  color: #708183;
+}
+
+.notification.low .body {
+  color: #708183;
+}
+
+
+/* =========================================
+ * NORMAL URGENCY
+ * ========================================= */
+
+.notification.normal {
+  border-color: #259185;
+}
+
+.notification.normal .summary {
+  color: #fcf4dc;
+}
+
+.notification.normal .body {
+  color: #e9e2cb;
+}
+
+
+/* =========================================
+ * CRITICAL URGENCY
+ * ========================================= */
+
+.notification.critical {
+  border-color: #d01b24;
+}
+
+.notification.critical .summary {
+  color: #fcf4dc;
+}
+
+.notification.critical .body {
+  color: #e9e2cb;
+}
+
+
+/* =========================================
+ * CLOSE BUTTON
+ * ========================================= */
+
+.close-button {
+  background: #002731;
+  color: #708183;
+
+  border: none;
+  border-radius: 6px;
+}
+
+.close-button:hover {
+  background: #d01b24;
+  color: #fcf4dc;
+}
+
+
+/* =========================================
+ * ACTION BUTTONS
+ * ========================================= */
+
+.notification-action {
+  background: #002731;
+  color: #fcf4dc;
+
+  border: 1px solid #259185;
+  border-radius: 6px;
+}
+
+.notification-action:hover {
+  background: #259185;
+  color: #001e26;
+}
+
+
+/* =========================================
+ * CONTROL CENTER
+ * ========================================= */
+
+.control-center {
+  background: rgba(0, 39, 49, 0.97);
+  color: #fcf4dc;
+
+  border: 2px solid #259185;
+  border-radius: 8px;
+
+  padding: 10px;
+}
+
+
+/* =========================================
+ * NOTIFICATION LIST
+ * ========================================= */
+
+.control-center-list {
+  background: transparent;
+}
+
+
+/* =========================================
+ * TITLE
+ * ========================================= */
+
+.widget-title {
+  color: #fcf4dc;
+  background: #002731;
+
+  padding: 10px;
+  margin: 5px;
+
+  border-radius: 8px;
+}
+
+.widget-title > button {
+  color: #001e26;
+  background: #259185;
+
+  border-radius: 6px;
+}
+
+.widget-title > button:hover {
+  background: #a57705;
+  color: #001e26;
+}
+
+
+/* =========================================
+ * DO NOT DISTURB
+ * ========================================= */
+
+.widget-dnd {
+  color: #fcf4dc;
+  background: #002731;
+
+  margin: 5px;
+  padding: 10px;
+
+  border-radius: 8px;
+}
+
+
+/* DND switch */
+
+.widget-dnd > switch {
+  background: #708183;
+
+  border-radius: 10px;
+}
+
+.widget-dnd > switch:checked {
+  background: #259185;
+}
+
+
+/* =========================================
+ * EMPTY STATE
+ * ========================================= */
+
+.control-center-list-placeholder {
+  color: #708183;
+}
+
+
+/* =========================================
+ * SCROLLBAR
+ * ========================================= */
+
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: #708183;
+
+  border-radius: 8px;
+
+  min-width: 6px;
+}
+
+scrollbar slider:hover {
+  background: #259185;
+}
+
+
+/* =========================================
+ * BUTTONS
+ * ========================================= */
+
+button {
+  border-radius: 6px;
+}
+
+button:hover {
+  background: #259185;
+  color: #001e26;
+}
+  font-family: "Iosevka Nerd Font";
+  font-size: 10pt;
+}
+
+/* =========================================
+ * Notification popup
+ * ========================================= */
+
+.notification {
+  background: rgba(0, 39, 49, 0.95);
+  color: #fcf4dc;
+
+  border: 2px solid #259185;
+  border-radius: 8px;
+
+  margin: 8px;
+  padding: 10px;
+}
+
+.notification-content {
+  background: transparent;
+}
+
+.summary {
+  color: #fcf4dc;
+  font-weight: bold;
+}
+
+.body {
+  color: #e9e2cb;
+}
+
+/* =========================================
+ * Low urgency
+ * ========================================= */
+
+.notification.low {
+  border-color: #708183;
+}
+
+.notification.low .summary,
+.notification.low .body {
+  color: #708183;
+}
+
+/* =========================================
+ * Normal urgency
+ * ========================================= */
+
+.notification.normal {
+  border-color: #259185;
+}
+
+.notification.normal .summary,
+.notification.normal .body {
+  color: #fcf4dc;
+}
+
+/* =========================================
+ * Critical urgency
+ * ========================================= */
+
+.notification.critical {
+  border-color: #d01b24;
+}
+
+.notification.critical .summary,
+.notification.critical .body {
+  color: #fcf4dc;
+}
+
+/* =========================================
+ * Close button
+ * ========================================= */
+
+.close-button {
+  background: #002731;
+  color: #708183;
+
+  border-radius: 6px;
+}
+
+.close-button:hover {
+  background: #d01b24;
+  color: #fcf4dc;
+}
+
+/* =========================================
+ * Notification actions
+ * ========================================= */
+
+.notification-action {
+  background: #002731;
+  color: #fcf4dc;
+
+  border: 1px solid #259185;
+  border-radius: 6px;
+}
+
+.notification-action:hover {
+  background: #259185;
+  color: #001e26;
+}
+
+.notification-default-action:hover {
+  background: rgba(0, 39, 49, 0.95);
+}
+
+/* =========================================
+ * Control Center
+ * ========================================= */
+
+.control-center {
+  background: rgba(0, 39, 49, 0.95);
+  color: #fcf4dc;
+
+  border: 2px solid #259185;
+  border-radius: 8px;
+}
+
+/* =========================================
+ * Control Center title
+ * ========================================= */
+
+.control-center-list {
+  background: transparent;
+}
+
+.widget-title {
+  color: #fcf4dc;
+  background: #002731;
+
+  padding: 10px;
+  margin: 8px;
+
+  border-radius: 8px;
+}
+
+.widget-title > button {
+  color: #001e26;
+  background: #259185;
+
+  border-radius: 6px;
+}
+
+.widget-title > button:hover {
+  background: #a57705;
+}
+
+/* =========================================
+ * Do Not Disturb
+ * ========================================= */
+
+.widget-dnd {
+  color: #fcf4dc;
+  background: #002731;
+
+  margin: 8px;
+  padding: 10px;
+
+  border-radius: 8px;
+}
+
+.widget-dnd > switch {
+  background: #708183;
+}
+
+.widget-dnd > switch:checked {
+  background: #259185;
+}
+
+/* =========================================
+ * Buttons
+ * ========================================= */
+
+button {
+  border-radius: 6px;
+}
+
+button:hover {
+  background: #259185;
+  color: #001e26;
+}

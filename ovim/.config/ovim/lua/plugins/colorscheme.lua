@@ -28,11 +28,7 @@ local sol = {
 }
 
 function M.config()
-	vim.api.nvim_create_autocmd("VimEnter", {
-		callback = function()
-			vim.cmd.colorscheme("solarized-osaka")
-		end,
-	})
+	vim.cmd.colorscheme("solarized-osaka")
 
 	local function apply_highlights()
 		local dark = vim.opt.background:get() == "dark"
