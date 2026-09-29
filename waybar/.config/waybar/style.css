@@ -303,7 +303,6 @@ window#waybar.hidden {
   color: #a57705;
   background: #002731;
 
-  border-radius: 8px;
 }
 
 
@@ -369,5 +368,4 @@ window#waybar.hidden {
 #custom-power:hover {
   color: #001e26;
   background: #2075c7;
-  border-radius: 8px;
 }
